@@ -54,7 +54,8 @@ namespace TestKurs
             {
                 _students.Add(a);
             }
-
+         
+            // delete student by Name
             public void DeleteStudent(String b)
             {
             int _indx = -1;
@@ -67,9 +68,7 @@ namespace TestKurs
             if (_indx>-1) {
                 _students.Remove(_students[_indx]);
             }
-            else { Console.WriteLine("NO EL"); }
-
-
+            else { Console.WriteLine("Element not found"); }
             }
 
             public void SortByName()
@@ -79,13 +78,15 @@ namespace TestKurs
 
             
 
-            public void Output()
-            {
-                foreach (Student i in _students)
+           public void Output()
+        {
+            Console.WriteLine("{0} teaches these students: ", _nameTeach);
+            foreach (Student i in _students)
                 {
                     Console.WriteLine(" " + i);
                 }
-            }
+            Console.WriteLine();
+        }
 
 
 
@@ -96,27 +97,30 @@ namespace TestKurs
     {
         static void Main(string[] args)
         {
-            Teacher tch = new Teacher("Karl");
-            Student qwe = new Student("sss","fff", 25);
-            Student wwe = new Student("qfs", "f3ff", 75);
-            Student aaa = new Student("abfs", "ff34f", 254);
-    
+            List<Teacher> teachers = new List<Teacher>();
 
-            tch.Output();
-      
+            teachers.Add(new Teacher("Albert Velosupedenko"));
+            teachers.Add(new Teacher("Olexandr Kostulyov"));
 
-            tch.Output();
-            tch.AddStudent(qwe);
-            tch.AddStudent(wwe);
-            tch.AddStudent(aaa);
+            Student Andr = new Student("Andrij Kuziw","SP-41", 23);
+            Student Serg = new Student("Sergiy Shmalenko", "SB-22", 19);
+            Student Rom = new Student("Roman Petrosyan", "SP-11", 20);
+            teachers[0].AddStudent(Andr);
+            teachers[0].AddStudent(Serg);
+            teachers[0].AddStudent(Rom);
 
 
-            tch.SortByName();
-            tch.Output();
-            tch.DeleteStudent("ddd");
-            tch.DeleteStudent("qfs");
-            tch.Output();
+            Student Oleg = new Student("Oleg Gluh", "SP-31", 22);
+            Student Alina = new Student("Alina Stasyuk", "SIs-32", 21);
+            Student Vit = new Student("Vitaliy Volochay", "SPs-41", 25);
+            teachers[1].AddStudent(Oleg);
+            teachers[1].AddStudent(Alina);
+            teachers[1].AddStudent(Vit);
 
+            teachers[0].Output();
+            teachers[1].Output();
+            teachers[0].SortByName();
+            teachers[0].Output();
             Console.ReadKey();
 
         }

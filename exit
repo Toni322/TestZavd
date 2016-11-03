@@ -1,0 +1,55 @@
+[1mdiff --git a/TestKurs/Program.cs b/TestKurs/Program.cs[m
+[1mindex e829554..59f7186 100644[m
+[1m--- a/TestKurs/Program.cs[m
+[1m+++ b/TestKurs/Program.cs[m
+[36m@@ -54,7 +54,8 @@[m [mnamespace TestKurs[m
+             {[m
+                 _students.Add(a);[m
+             }[m
+[31m-[m
+[32m+[m[41m         [m
+[32m+[m[32m            // delete student by Name[m
+             public void DeleteStudent(String b)[m
+             {[m
+             int _indx = -1;[m
+[36m@@ -67,9 +68,7 @@[m [mnamespace TestKurs[m
+             if (_indx>-1) {[m
+                 _students.Remove(_students[_indx]);[m
+             }[m
+[31m-            else { Console.WriteLine("NO EL"); }[m
+[31m-[m
+[31m-[m
+[32m+[m[32m            else { Console.WriteLine("Element not found"); }[m
+             }[m
+ [m
+             public void SortByName()[m
+[36m@@ -79,7 +78,7 @@[m [mnamespace TestKurs[m
+ [m
+             [m
+ [m
+[31m-            public void Output()[m
+[32m+[m[32m           public void Output()[m
+             {[m
+                 foreach (Student i in _students)[m
+                 {[m
+[36m@@ -96,6 +95,8 @@[m [mnamespace TestKurs[m
+     {[m
+         static void Main(string[] args)[m
+         {[m
+[32m+[m[32m            List<Teacher> teachers = new List<Teacher>();[m
+[32m+[m
+             Teacher tch = new Teacher("Karl");[m
+             Student qwe = new Student("sss","fff", 25);[m
+             Student wwe = new Student("qfs", "f3ff", 75);[m
+[1mdiff --git a/TestKurs/bin/Debug/TestKurs.exe b/TestKurs/bin/Debug/TestKurs.exe[m
+[1mindex f9de108..92b0d6a 100644[m
+Binary files a/TestKurs/bin/Debug/TestKurs.exe and b/TestKurs/bin/Debug/TestKurs.exe differ
+[1mdiff --git a/TestKurs/bin/Debug/TestKurs.pdb b/TestKurs/bin/Debug/TestKurs.pdb[m
+[1mindex 01f0a83..e7a1eeb 100644[m
+Binary files a/TestKurs/bin/Debug/TestKurs.pdb and b/TestKurs/bin/Debug/TestKurs.pdb differ
+[1mdiff --git a/TestKurs/obj/Debug/TestKurs.exe b/TestKurs/obj/Debug/TestKurs.exe[m
+[1mindex f9de108..92b0d6a 100644[m
+Binary files a/TestKurs/obj/Debug/TestKurs.exe and b/TestKurs/obj/Debug/TestKurs.exe differ
+[1mdiff --git a/TestKurs/obj/Debug/TestKurs.pdb b/TestKurs/obj/Debug/TestKurs.pdb[m
+[1mindex 01f0a83..e7a1eeb 100644[m
+Binary files a/TestKurs/obj/Debug/TestKurs.pdb and b/TestKurs/obj/Debug/TestKurs.pdb differ
