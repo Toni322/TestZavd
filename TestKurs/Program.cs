@@ -75,7 +75,8 @@ namespace TestKurs
             else { Console.WriteLine("Element not found"); }
             }
 
-            public void SortByName()
+
+        public void SortByName()
             {
                 _students.Sort();
             }
@@ -131,6 +132,8 @@ namespace TestKurs
                 Console.WriteLine("1 - Choose teacher");
                 Console.WriteLine("2 - Add teacher");
                 Console.WriteLine("3 - Show all students");
+                Console.WriteLine("4 - Sort all students");
+
                 i = Convert.ToInt32(Console.ReadLine());
                 switch (i)
                 {
@@ -149,6 +152,7 @@ namespace TestKurs
                         a:
                         Console.WriteLine("1 - Show students");
                         Console.WriteLine("2 - Add student");
+                        Console.WriteLine("3 - Delete student");
                         int sw = -1;
                         sw = Convert.ToInt32(Console.ReadLine());
                         switch (sw) {
@@ -163,6 +167,12 @@ namespace TestKurs
                                 Console.WriteLine("Enter the age of the student");
                                 int age = Convert.ToInt32(Console.ReadLine());
                                 teachers[k].AddStudent(new Student(nameS,group,age));
+
+                                break;
+                            case 3:
+                                Console.WriteLine("Enter the name of the student");
+                                String delStud = Console.ReadLine();
+                                teachers[k].DeleteStudent(delStud);
 
                                 break;
                             default:
@@ -206,6 +216,9 @@ namespace TestKurs
                         break;
                     case 3:
                         foreach (Teacher t in teachers) { t.Output(); }
+                        break;
+                    case 4:
+                        foreach (Teacher t in teachers) { t.SortByName(); }
                         break;
                 }
 
