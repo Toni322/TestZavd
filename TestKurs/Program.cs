@@ -17,15 +17,18 @@ namespace TestKurs
             _groupStud = group;
             _age = age;
         }
-        public string getName() {
+        public string GetName() {
             return _nameStud;
             }
+
+
 
         public override string ToString()
         { 
             return String.Format("Name: {0}, goup: {1}, age: {2}", _nameStud, _groupStud, _age);
         }
-
+      
+        //sort by name
         public int CompareTo(Student obj)
         {
             return _nameStud.CompareTo(obj._nameStud);
@@ -34,25 +37,29 @@ namespace TestKurs
     }
 
     class Teacher {
-        String _nameTeach;
+        String _nameTeach ;
         List<Student> _students;
-        public Teacher()
+        public Teacher(String name)
         {
+            _nameTeach = name;
             _students = new List<Student>();
+        }
+        
+        //add new stud
+        public void AddStudent(Student a) {
+            _students.Add(a);
+        }
 
-            Student Q = new Student("qwe", "rty", 12);
-            Student Z = new Student("asd", "bbb", 21);
-            _students.Add(Q);
-            _students.Add(Z);
-           
+        public void SortByName() {
             _students.Sort();
+        }
 
-            foreach (Student i in _students) {
+        public void Output() {
+            foreach (Student i in _students)
+            {
                 Console.WriteLine(" " + i);
             }
         }
-
-
        
 
 
@@ -62,11 +69,14 @@ namespace TestKurs
     {
         static void Main(string[] args)
         {
-            Teacher tch = new Teacher();
+            Teacher tch = new Teacher("Karl");
             Student qwe = new Student("sss","fff", 25);
+            //Console.WriteLine(qwe);
             Console.WriteLine(qwe);
 
+
             Console.ReadKey();
+
         }
     }
 }
